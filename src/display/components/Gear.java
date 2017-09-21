@@ -35,36 +35,35 @@ public class Gear extends JComponent {
     }
 
     public void setGear(int gear) {
-        System.out.println(gear);
         switch (gear) {
-            case -1:
+            case 0:
                 this.gear.setText(REVERSE);
                 break;
-            case 0:
+            case 1:
                 this.gear.setText(NEUTRAL);
                 break;
-            case 1:
+            case 2:
                 this.gear.setText(FIRST);
                 break;
-            case 2:
+            case 3:
                 this.gear.setText(SECOND);
                 break;
-            case 3:
+            case 4:
                 this.gear.setText(THIRD);
                 break;
-            case 4:
+            case 5:
                 this.gear.setText(FOURTH);
                 break;
-            case 5:
+            case 6:
                 this.gear.setText(FIFTH);
                 break;
-            case 6:
+            case 7:
                 this.gear.setText(SIXTH);
                 break;
-            case 7:
+            case 8:
                 this.gear.setText(SEVENTH);
                 break;
-            case 8:
+            case 9:
                 this.gear.setText(EIGHT);
                 break;
         }

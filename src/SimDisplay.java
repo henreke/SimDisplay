@@ -1,4 +1,6 @@
 import display.Display;
+import server.UDPPacket;
+import server.UDPServer;
 
 public class SimDisplay {
 
@@ -8,8 +10,24 @@ public class SimDisplay {
 
         display.init();
 
-        Thread.sleep(2000);
+        UDPServer server = new UDPServer();
+        Thread thread = new Thread(new Runnable() {
+            public void run() {
+                try {
+                    server.start();
+                } catch (Exception e) {
+                }
+            }
+        });
+        thread.start();
 
-        display.changeGear(2);
+        while (true) {
+            UDPPacket packet = server.getPacket();
+            if (packet != null) {
+                int gear = (int) Math.round(packet.getM_gear());
+                display.changeGear(gear);
+                Thread.sleep(100);
+            }
+        }
     }
 }
