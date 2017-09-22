@@ -1,6 +1,7 @@
 package display;
 
 import display.components.Gear;
+import server.UDPPacket;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,34 +15,42 @@ public class Display {
 
 
     // Gear
-    JPanel gearPanel;
-    Gear gear = new Gear();
+    private JPanel gearPanel;
+    private Gear gear = new Gear();
 
     public Display() {
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setUndecorated(true);
+        this.frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.frame.setUndecorated(true);
 
-        device.setFullScreenWindow(frame);
+        this.device.setFullScreenWindow(this.frame);
 
         this.initializePanels();
 
-        frame.pack();
+        this.frame.pack();
     }
 
     public void init() {
         frame.setVisible(true);
     }
 
-    public void changeGear(int gear) {
-        this.gear.setGear(gear);
-        gearPanel.validate();
-        gearPanel.repaint();
+    public void refresh (UDPPacket info) {
+        this.gear.setGear(Math.round(info.m_gear));
+        this.validate();
+        this.repaint();
     }
 
     private void initializePanels() {
-        gearPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
-        gearPanel.add(gear.getGear(), BorderLayout.CENTER);
-        gearPanel.setBackground(Color.BLACK);
-        frame.add(gearPanel);
+        this.gearPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
+        this.gearPanel.add(gear.getGear(), BorderLayout.CENTER);
+        this.gearPanel.setBackground(Color.BLACK);
+        this.frame.add(this.gearPanel);
+    }
+
+    private void validate() {
+        this.gearPanel.validate();
+    }
+
+    private void repaint() {
+        this.gearPanel.repaint();
     }
 }

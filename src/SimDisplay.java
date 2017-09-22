@@ -24,8 +24,7 @@ public class SimDisplay {
         while (true) {
             UDPPacket packet = server.getPacket();
             if (packet != null) {
-                int gear = (int) Math.round(packet.getM_gear());
-                display.changeGear(gear);
+                display.refresh(packet);
                 Thread.sleep(100);
             }
         }
