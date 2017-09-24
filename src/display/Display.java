@@ -11,14 +11,19 @@ public class Display {
     private static GraphicsDevice device = GraphicsEnvironment
             .getLocalGraphicsEnvironment().getScreenDevices()[0];
 
-    private final JFrame frame = new JFrame("Display");
+    private Image img;
 
+    private final JWindow splash = new JWindow();
+    private final JFrame frame = new JFrame("Display");
 
     // Gear
     private JPanel gearPanel;
     private Gear gear = new Gear();
 
-    public Display() {
+    public Display(String img) {
+
+        this.showSplashScreen(img);
+
         this.frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.frame.setUndecorated(true);
 
@@ -37,6 +42,10 @@ public class Display {
         this.gear.setGear(Math.round(info.m_gear));
         this.validate();
         this.repaint();
+    }
+
+    private void showSplashScreen(String img) {
+        new SplashScreen(img);
     }
 
     private void initializePanels() {

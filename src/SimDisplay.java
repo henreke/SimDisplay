@@ -1,12 +1,15 @@
 import display.Display;
+import display.SplashScreen;
 import server.UDPPacket;
 import server.UDPServer;
 
 public class SimDisplay {
 
+    private static final String F1 = "src/res/img/f1.png";
+
     public static void main(String[] args) throws InterruptedException {
 
-        Display display = new Display();
+        Display display = new Display(F1);
 
         display.init();
 
