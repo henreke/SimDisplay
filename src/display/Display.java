@@ -22,7 +22,7 @@ public class Display {
 
     public Display(String img) {
 
-        this.showSplashScreen(img);
+        //this.showSplashScreen(img);
 
         this.frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.frame.setUndecorated(true);

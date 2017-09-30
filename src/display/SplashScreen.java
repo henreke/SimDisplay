@@ -1,6 +1,6 @@
 package display;
 
-import javax.swing.JWindow;
+import javax.swing.*;
 import java.awt.*;
 
 public class SplashScreen extends JWindow {

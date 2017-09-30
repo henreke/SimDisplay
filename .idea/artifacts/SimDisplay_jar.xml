@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SimDisplay:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SimDisplay_jar</output-path>
+    <root id="archive" name="SimDisplay.jar">
+      <element id="module-output" name="SimDisplay" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/res" />
+    </root>
+  </artifact>
+</component>

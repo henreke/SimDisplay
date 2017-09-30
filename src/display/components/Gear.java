@@ -28,6 +28,7 @@ public class Gear extends JComponent {
         this.gear.setOpaque(true);
         this.gear.setBorder(null);
         this.gear.setText(gearText);
+        this.gear.getCaret().setVisible(false);
     }
 
     public JTextField getGear() {
